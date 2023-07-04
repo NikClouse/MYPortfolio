@@ -1,0 +1,52 @@
+﻿@model List<Project>
+
+
+<h2>Мои Проекти</h2>
+
+<div class="row justify-content-end">
+	<a class="btn btn-primary" asp-controller="Project" asp-action="Add" role="button"> Добавить прект </a>
+
+</div>
+
+<div class="row">
+	@foreach(var project in Model)
+	{
+		<div class="col-md-4 md-5">
+			
+		   <div class="card h-100">
+				
+				<div class="card-body">
+		
+			         <div>
+				            <img class="card-img-top" src="/img/q.jpg" alt="@project.Name" />
+
+			         </div>
+
+			         <h2 class="card-title text-center">
+
+				         <a href="@project.Link" target="_blank"> @project.Name  </a>
+
+			         </h2>
+
+			         <div>
+				        <p class="font-weight-normal">@project.Description</p>
+
+			         </div>
+			
+
+			         <div>
+			            	<a class="btn btn-danger" asp-controller="Project" asp-action="Remove" asp-route-name="@project.Name" role="button">Удалить</a>
+			         </div>
+			
+		        </div>
+			
+		
+			
+	        </div>
+	
+         </div>	
+		
+		
+	}
+
+</div>
